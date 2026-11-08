@@ -1,1 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
+
+/* ========================================
+   KHPS - DESIGN SYSTEM
+======================================== */
+
+:root {
+    /* Brand Colors */
+    --color-primary: #2D5A27;
+    --color-primary-dark: #1E401B;
+    --color-primary-light: #E8F0E5;
+
+    /* Accent Colors */
+    --color-accent: #D98E36;
+    --color-accent-light: #F8EBD9;
+
+    /* Background Colors */
+    --color-background: #F7F2E7;
+    --color-surface: #FFFFFF;
+    --color-surface-muted: #F0EBDD;
+
+    /* Text Colors */
+    --color-text: #252A23;
+    --color-text-secondary: #77786F;
+    --color-text-light: #A3A398;
+    --color-text-inverse: #FFFFFF;
+
+    /* Border Colors */
+    --color-border: #E5E0D5;
+    --color-border-dark: #D4CEBF;
+
+    /* Status Colors */
+    --color-success: #287A45;
+    --color-warning: #C17A20;
+    --color-danger: #C0392B;
+    --color-info: #3478A5;
+
+    /* Typography */
+    --font-heading: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', 'Noto Sans Kannada', sans-serif;
+    --font-kannada: 'Noto Sans Kannada', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Layout */
+    --container-width: 1200px;
+    --header-height: 76px;
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(37, 42, 35, 0.06);
+    --shadow-md: 0 8px 24px rgba(37, 42, 35, 0.09);
+    --shadow-lg: 0 16px 40px rgba(37, 42, 35, 0.12);
+}
+
+/* ========================================
+   TAILWIND THEME TOKENS
+======================================== */
+
+@theme {
+    --color-primary: #2D5A27;
+    --color-primary-dark: #1E401B;
+    --color-primary-light: #E8F0E5;
+
+    --color-accent: #D98E36;
+    --color-accent-light: #F8EBD9;
+
+    --color-background: #F7F2E7;
+    --color-surface: #FFFFFF;
+    --color-surface-muted: #F0EBDD;
+
+    --color-text: #252A23;
+    --color-text-secondary: #77786F;
+    --color-text-light: #A3A398;
+
+    --color-border: #E5E0D5;
+
+    --font-heading: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', 'Noto Sans Kannada', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.font-heading {
+    font-family: var(--font-heading);
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+.font-kannada {
+    font-family: var(--font-kannada);
+}
+
+/* ========================================
+   REUSABLE LAYOUT
+======================================== */
+
+.container {
+    width: min(100% - 40px, var(--container-width));
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: 80px;
+}
+
+.section-heading {
+    margin-bottom: 16px;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.section-description {
+    max-width: 650px;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn-outline {
+    border-color: var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+/* ========================================
+   CARDS
+======================================== */
+
+.card {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 64px;
+    }
+
+    .section {
+        padding-block: 56px;
+    }
+
+    .container {
+        width: min(100% - 32px, var(--container-width));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
