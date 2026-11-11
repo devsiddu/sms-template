@@ -5,214 +5,13 @@ import {
   ArrowRight,
   ArrowUpRight,
   CalendarDays,
-  Clock3,
   Newspaper,
   UserRound,
   Share2,
   BookOpen,
   ChevronRight,
 } from "lucide-react";
-
-// Temporary demo news data.
-// Keep this structure consistent with News.jsx.
-
-const newsData = [
-  {
-    id: 1,
-    title: "Annual School Day Celebration",
-    excerpt:
-      "A memorable celebration bringing together students, teachers, parents, and the community to recognize talent, achievements, and the spirit of learning.",
-    category: "Events",
-    date: "2026-10-25",
-    image:
-      "https://images.unsplash.com/photo-1503095396549-807759245b35?w=1400",
-    readTime: "4 min read",
-    author: "School Administration",
-    content: [
-      {
-        heading: "A Celebration of Learning and Talent",
-        paragraphs: [
-          "The Annual School Day is an important occasion in the life of a school. It provides an opportunity to celebrate the learning journey, talents, and achievements of students.",
-          "Students, teachers, parents, and members of the community come together to make the occasion memorable. It reflects the collective effort and dedication that contribute to a positive educational environment.",
-        ],
-      },
-      {
-        heading: "Encouraging Every Student",
-        paragraphs: [
-          "School celebrations provide students with opportunities to express themselves, develop confidence, and participate in activities beyond their regular classroom learning.",
-          "Every performance, participation, and achievement represents an important step in a student's personal growth.",
-        ],
-      },
-      {
-        heading: "Growing Together as a Community",
-        paragraphs: [
-          "The support of parents, teachers, and the wider community plays an important role in the school's development. Such occasions strengthen these relationships and create lasting memories.",
-          "We remain committed to creating opportunities where every student can learn, participate, and discover their potential.",
-        ],
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Celebrating Student Achievements",
-    excerpt:
-      "Recognizing the dedication, hard work, and achievements of our students across different areas of learning.",
-    category: "Achievements",
-    date: "2026-10-18",
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200",
-    readTime: "3 min read",
-    author: "School Administration",
-    content: [
-      {
-        heading: "Recognizing Student Efforts",
-        paragraphs: [
-          "Every achievement begins with effort, determination, and a willingness to learn. Recognizing student progress encourages children to continue developing their abilities.",
-          "Academic learning, creativity, participation, and personal development all contribute to a student's journey.",
-        ],
-      },
-      {
-        heading: "Encouraging Future Growth",
-        paragraphs: [
-          "Teachers and parents play an important role in supporting students. Their encouragement helps children approach new challenges with confidence.",
-          "We believe every student has the potential to grow and achieve meaningful goals.",
-        ],
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "A Day of Learning and Creativity",
-    excerpt:
-      "Students explore their creativity and develop new skills through engaging classroom activities and collaborative learning.",
-    category: "Activities",
-    date: "2026-10-12",
-    image:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200",
-    readTime: "3 min read",
-    author: "Teaching Staff",
-    content: [
-      {
-        heading: "Learning Beyond Textbooks",
-        paragraphs: [
-          "Learning becomes meaningful when students have opportunities to explore ideas, ask questions, and participate actively.",
-          "Creative classroom activities help students develop confidence, communication, and problem-solving skills.",
-        ],
-      },
-      {
-        heading: "Building Curiosity",
-        paragraphs: [
-          "A supportive learning environment encourages children to express ideas and discover new interests.",
-          "Our goal is to make learning engaging while helping every student develop a strong foundation.",
-        ],
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Important Notice for Parents",
-    excerpt:
-      "Parents are requested to stay connected with the school for upcoming academic activities and important announcements.",
-    category: "Announcements",
-    date: "2026-10-05",
-    image:
-      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200",
-    readTime: "2 min read",
-    author: "School Administration",
-    content: [
-      {
-        heading: "Information for Parents",
-        paragraphs: [
-          "Communication between the school and parents is essential for supporting students throughout their education.",
-          "Parents are encouraged to stay connected with the school office and follow official school communications for updates.",
-        ],
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "Building a Better Learning Environment",
-    excerpt:
-      "Our continued efforts to create a welcoming environment where students can learn, grow, and discover their potential.",
-    category: "Activities",
-    date: "2026-09-25",
-    image:
-      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200",
-    readTime: "3 min read",
-    author: "School Administration",
-    content: [
-      {
-        heading: "A Positive Environment for Learning",
-        paragraphs: [
-          "A welcoming school environment supports learning, creativity, and the overall development of students.",
-          "Teachers, parents, and students contribute to creating a positive atmosphere built on respect and cooperation.",
-        ],
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: "Celebrating the Spirit of Togetherness",
-    excerpt:
-      "Students and teachers come together to celebrate shared experiences, teamwork, and the importance of community.",
-    category: "Events",
-    date: "2026-09-15",
-    image:
-      "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200",
-    readTime: "4 min read",
-    author: "Teaching Staff",
-    content: [
-      {
-        heading: "The Importance of Togetherness",
-        paragraphs: [
-          "A strong school community is built through cooperation, mutual respect, and shared experiences.",
-          "Activities that bring students and teachers together help build friendships and a sense of belonging.",
-        ],
-      },
-    ],
-  },
-  {
-    id: 7,
-    title: "School Admission Information",
-    excerpt:
-      "Information for parents interested in learning more about the school's admission process and educational environment.",
-    category: "Announcements",
-    date: "2026-09-05",
-    image: "https://images.unsplash.com/photo-1560785496-3c9d27877182?w=1200",
-    readTime: "2 min read",
-    author: "School Administration",
-    content: [
-      {
-        heading: "Admission Enquiries",
-        paragraphs: [
-          "Parents interested in learning about the school and its educational environment are welcome to contact the school office.",
-          "Please contact the school directly for verified admission requirements, available classes, and relevant dates.",
-        ],
-      },
-    ],
-  },
-  {
-    id: 8,
-    title: "Encouraging a Love for Reading",
-    excerpt:
-      "Promoting reading habits and helping students develop curiosity, imagination, and a lifelong interest in knowledge.",
-    category: "Activities",
-    date: "2026-08-28",
-    image:
-      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200",
-    readTime: "3 min read",
-    author: "Teaching Staff",
-    content: [
-      {
-        heading: "Reading Opens New Worlds",
-        paragraphs: [
-          "Reading helps children improve their language, imagination, and understanding of the world around them.",
-          "Developing a regular reading habit can support learning across different subjects and encourage independent thinking.",
-        ],
-      },
-    ],
-  },
-];
+import { useSchool } from "../context/useSchool";
 
 const formatDate = (date) =>
   new Date(`${date}T00:00:00`).toLocaleDateString("en-IN", {
@@ -230,18 +29,19 @@ const categoryColors = {
 
 export default function NewsDetail() {
   const { id } = useParams();
+  const { news } = useSchool();
 
-  const article = newsData.find((item) => String(item.id) === String(id));
+  const article = news.find((item) => String(item.id) === String(id));
 
   const relatedNews = useMemo(() => {
     if (!article) return [];
 
-    return newsData
+    return news
       .filter(
         (item) => item.id !== article.id && item.category === article.category,
       )
       .slice(0, 3);
-  }, [article]);
+  }, [news, article]);
 
   const fallbackNews = useMemo(() => {
     if (!article || relatedNews.length >= 3) return relatedNews;
@@ -253,11 +53,11 @@ export default function NewsDetail() {
 
     return [
       ...relatedNews,
-      ...newsData
+      ...news
         .filter((item) => !existingIds.has(item.id))
         .slice(0, 3 - relatedNews.length),
     ];
-  }, [article, relatedNews]);
+  }, [article, relatedNews, news]);
 
   // Article not found
   if (!article) {
@@ -377,11 +177,6 @@ export default function NewsDetail() {
             <div className="flex items-center gap-2 text-sm text-text-secondary">
               <CalendarDays size={17} className="text-primary" />
               {formatDate(article.date)}
-            </div>
-
-            <div className="flex items-center gap-2 text-sm text-text-secondary">
-              <Clock3 size={17} className="text-primary" />
-              {article.readTime}
             </div>
           </div>
         </div>

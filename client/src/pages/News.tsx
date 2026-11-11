@@ -11,11 +11,10 @@ import {
   BookOpen,
   ChevronLeft,
   ChevronRight,
-  Clock3,
   X,
   Mail,
 } from "lucide-react";
-import { dummyNewsData } from "../assets/assets";
+import { useSchool } from "../context/useSchool";
 
 // Temporary demo content.
 // Replace with API data when the admin news module is ready.
@@ -41,12 +40,12 @@ export default function News() {
   const [activeCategory, setActiveCategory] = useState("All News");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [newsData, setNewsData] = useState(dummyNewsData);
+  const { news } = useSchool();
 
-  const featuredNews = newsData.find((item) => item.featured);
+  const featuredNews = news.find((item) => item.featured);
 
   const filteredNews = useMemo(() => {
-    return newsData.filter((item) => {
+    return news.filter((item) => {
       const matchesCategory =
         activeCategory === "All News" || item.category === activeCategory;
 
@@ -60,7 +59,7 @@ export default function News() {
 
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, news]);
 
   const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
 

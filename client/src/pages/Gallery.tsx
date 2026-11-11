@@ -9,7 +9,7 @@ import {
   Images,
   X,
 } from "lucide-react";
-import { dummyGalleryData } from "../assets/assets";
+import { useSchool } from "../context/useSchool";
 
 const categories = [
   "All",
@@ -23,12 +23,11 @@ const categories = [
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState(null);
-  const [galleryData, setGalleryData] = useState(dummyGalleryData);
-
+  const { galleryImages } = useSchool();
   const filteredImages = useMemo(() => {
-    if (activeCategory === "All") return galleryData;
+    if (activeCategory === "All") return galleryImages;
 
-    return galleryData.filter((item) => item.category === activeCategory);
+    return galleryImages.filter((item) => item.category === activeCategory);
   }, [activeCategory]);
 
   const selectedIndex = filteredImages.findIndex(
@@ -97,7 +96,7 @@ export default function Gallery() {
 
           <div className="mt-12 flex items-center gap-3 text-sm text-white/70">
             <Images size={19} />
-            <span>{galleryData.length} photographs</span>
+            <span>{galleryImages.length} photographs</span>
             <span className="text-white/30">•</span>
             <span>{categories.length - 1} categories</span>
           </div>

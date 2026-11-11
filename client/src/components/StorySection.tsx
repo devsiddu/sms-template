@@ -1,6 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import { assets } from "../assets/assets";
-import { useSchool } from "../context/SchoolContext";
+import { useSchool } from "../context/useSchool";
 
 const milestones = [
   {

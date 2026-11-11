@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { useSchool } from "../../context/SchoolContext";
 import Loader from "../../components/Loader";
+import { useSchool } from "../../context/useSchool";
 
 const PublicLayout = () => {
   const { schoolInfo, loading } = useSchool();

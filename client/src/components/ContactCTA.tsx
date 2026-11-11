@@ -1,5 +1,5 @@
 import { ArrowRight, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
-import { useSchool } from "../context/SchoolContext";
+import { useSchool } from "../context/useSchool";
 
 export default function ContactCTA() {
   const { schoolInfo } = useSchool();

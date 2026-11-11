@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SectionHeading from "../components/SectionHeading";
-import { useSchool } from "../context/SchoolContext";
+import { useSchool } from "../context/useSchool";
 
 const NewsSection = () => {
   const { news } = useSchool();
