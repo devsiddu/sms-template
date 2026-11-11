@@ -25,7 +25,6 @@ export interface NewsItem {
   image?: string;
   author: string;
   content: ContentType[];
-  description?: string;
   featured?: boolean;
 }
 
