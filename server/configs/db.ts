@@ -10,7 +10,7 @@ const connectDB = async () => {
 
     console.log("Connecting to MongoDB Atlas...");
 
-    await mongoose.connect(uri, {
+    await mongoose.connect(`${uri}/school-project`, {
       serverSelectionTimeoutMS: 10000,
     });
 
