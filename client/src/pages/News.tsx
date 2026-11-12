@@ -29,7 +29,7 @@ const categories = [
 
 const ITEMS_PER_PAGE = 6;
 
-const formatDate = (date) =>
+const formatDate = (date: string) =>
   new Date(`${date}T00:00:00`).toLocaleDateString("en-IN", {
     day: "numeric",
     month: "short",
@@ -68,12 +68,12 @@ export default function News() {
     currentPage * ITEMS_PER_PAGE,
   );
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
     setCurrentPage(1);
   };
 
-  const handleSearch = (value) => {
+  const handleSearch = (value: string) => {
     setSearchQuery(value);
     setCurrentPage(1);
   };

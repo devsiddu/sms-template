@@ -84,7 +84,7 @@ const NewsSection = () => {
                 </h3>
 
                 <p className="mt-3 text-sm leading-7 text-text-secondary">
-                  {item.description}
+                  {item.excerpt}
                 </p>
 
                 <Link

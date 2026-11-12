@@ -237,3 +237,14 @@ export const toggleIsFeatured = async (req: Request, res: Response) => {
     return res.status(500).json({ success: false, message: error });
   }
 };
+
+export const getAllNews = async (req: Request, res: Response) => {
+  try {
+    const newses = await News.find().sort({ createdAt: -1 });
+    return res.status(200).json({ success: true, newses });
+  } catch (error) {
+    console.error(`Error while accessing all news : ${error}`);
+    return res.json({success: false, message: "Internal server error"})
+    
+  }
+};
