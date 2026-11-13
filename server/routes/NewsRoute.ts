@@ -4,6 +4,7 @@ import {
   addNews,
   deleteNews,
   getAllNews,
+  getNewsById,
   toggleIsFeatured,
   updateNews,
 } from "../controllers/NewsController.js";
@@ -15,5 +16,6 @@ newsRoute.delete("/:id", deleteNews);
 newsRoute.put("/:id", updateNews);
 newsRoute.patch("/:id", toggleIsFeatured);
 newsRoute.get("/all", getAllNews);
+newsRoute.get("/:id", getNewsById);
 
 export default newsRoute;
