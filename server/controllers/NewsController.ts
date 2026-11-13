@@ -244,7 +244,33 @@ export const getAllNews = async (req: Request, res: Response) => {
     return res.status(200).json({ success: true, newses });
   } catch (error) {
     console.error(`Error while accessing all news : ${error}`);
-    return res.json({success: false, message: "Internal server error"})
-    
+    return res.json({ success: false, message: "Internal server error" });
+  }
+};
+
+export const getNewsById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id as string)) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid news id" });
+    }
+
+    const news = await News.findById(id);
+
+    if (!news) {
+      return res
+        .status(404)
+        .json({ success: false, message: "News not found" });
+    }
+
+    return res.status(200).json({ success: true, news });
+  } catch (error) {
+    console.error(`Error while accessing news by id : ${error}`);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };
