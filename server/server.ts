@@ -5,6 +5,7 @@ import connectDB from "./configs/db.js";
 import newsRoute from "./routes/NewsRoute.js";
 import galleryRoutes from "./routes/GalleyRoute.js";
 import schoolRouter from "./routes/SchoolRoute.js";
+import userRoutes from "./routes/UserRoute.js";
 
 const app = express();
 
@@ -22,6 +23,8 @@ const port = process.env.PORT || 3000;
 app.use("/api/news", newsRoute);
 app.use("/api/gallery", galleryRoutes);
 app.use("/api/school", schoolRouter);
+app.use("/api/user", userRoutes);
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Server is Live!");
 });

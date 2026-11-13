@@ -168,3 +168,19 @@ export const updateSchoolInfo = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const getSchoolInfo = async (req: Request, res: Response) => {
+  try {
+    const school = await School.findOne();
+    if (!school) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Unable to load school" });
+    }
+
+    return res.status(200).json({ success: true, school });
+  } catch (error) {
+    console.error(`Error while accessing school info : ${error}`);
+    return res.json({ success: false, message: "Internal server error" });
+  }
+};
