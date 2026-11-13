@@ -8,7 +8,7 @@ export const schoolSchemaValidator = z.object({
     .optional()
     .transform((val) => val || undefined),
   location: z.string().min(10, "Location is required"),
-  establishYear: z.number().min(4, "Year is required").max(4),
+  establishYear: z.string().min(4, "Year is required").max(4),
   heroImage: z
     .string()
     .optional()

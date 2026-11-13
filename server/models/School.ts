@@ -9,7 +9,7 @@ const schoolSchema = new mongoose.Schema<schoolSchema>(
     },
     slogan: {
       type: String,
-      required: true,
+      // required: true,
     },
     shortname: {
       type: String,
@@ -20,7 +20,7 @@ const schoolSchema = new mongoose.Schema<schoolSchema>(
       required: true,
     },
     establishYear: {
-      type: Number,
+      type: String,
       required: true,
       min: 4,
       max: 4,
